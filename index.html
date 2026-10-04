@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ky" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IT adis — Программалоо экзамени</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="bg" aria-hidden="true"></div>
+<!-- NAVBAR -->
+<header class="nav">
+  <a href="#home" class="brand"><img src="assets/Logo.jpeg" alt="IT adis Logo"></a>
+  <nav id="menu" aria-label="Башкы меню">
+    <a href="#home">Башкы бет</a><a href="#exam">Экзамен</a><a href="#topics">Темалар</a><a href="#history">Тарых</a><a href="#about">Биз жөнүндө</a>
+  </nav>
+  <button id="themeBtn" class="icon-btn" aria-label="Тема алмаштыруу">🌙</button>
+  <button id="burger" class="icon-btn" aria-label="Меню" aria-expanded="false">☰</button>
+</header>
+<main>
+<!-- HOME -->
+<section id="home" class="hero">
+  <div>
+    <h1>IT adis — <span class="neon">ПРОГРАММАЛОО ЭКЗАМЕНИ</span></h1>
+    <p class="sub">Билимиңди сына. Кодду үйрөн. Келечекти өзүң кур.</p>
+    <a href="#topics" class="btn big">ЭКЗАМЕНДИ БАШТОО</a>
+  </div>
+  <div class="term glass" aria-label="Терминал">
+    <div class="dots"><i></i><i></i><i></i></div>
+    <pre id="termText"></pre><span class="cursor">█</span>
+    <div class="dev">👨‍💻</div>
+  </div>
+</section>
+<!-- QUOTES -->
+<section class="quotes glass"><p id="quote" class="fade"></p></section>
+<!-- TOPICS -->
+<section id="topics">
+  <h2>ЭКЗАМЕНДИН БӨЛҮМҮН ТАНДА</h2>
+  <div class="grid">
+    <article class="card glass"><div class="ico">💻</div><h3>БААРДЫК ТЕМА</h3><p>HTML + CSS + Python</p><small>20 суроо</small><button class="btn" data-topic="all">ЭКЗАМЕНДИ БАШТОО</button></article>
+    <article class="card glass"><div class="ico">🌐</div><h3>HTML</h3><p>Web структурасы жана HTML тегдери</p><small>20 суроо</small><button class="btn" data-topic="html">ЭКЗАМЕНДИ БАШТОО</button></article>
+    <article class="card glass"><div class="ico">🎨</div><h3>CSS</h3><p>Web дизайн жана стилдөө</p><small>20 суроо</small><button class="btn" data-topic="css">ЭКЗАМЕНДИ БАШТОО</button></article>
+    <article class="card glass"><div class="ico">🐍</div><h3>PYTHON</h3><p>Python программалоонун негиздери</p><small>20 суроо</small><button class="btn" data-topic="python">ЭКЗАМЕНДИ БАШТОО</button></article>
+  </div>
+</section>
+<!-- EXAM -->
+<section id="exam">
+  <h2>ЭКЗАМЕН</h2>
+  <div id="idle" class="glass pad center"><p>Баштоо үчүн жогорудан бөлүм танда.</p><a class="btn" href="#topics">БӨЛҮМ ТАНДОО</a></div>
+  <div id="quiz" class="glass pad" hidden>
+    <div class="top">
+      <b id="qCount">СУРОО 1 / 20</b>
+      <span id="qCat" class="neon"></span>
+      <button id="muteBtn" class="icon-btn" aria-label="Үн">🔊</button>
+      <button id="exitBtn" class="icon-btn" aria-label="Чыгуу">✖</button>
+      <div id="timer" class="timer" role="timer" aria-live="off">⏱ 01:00</div>
+    </div>
+    <div class="bar"><div id="fill"></div><span id="dev" class="devp">👨‍💻</span><span class="flag">🏁</span></div>
+    <div class="stats"><span>Туура: <b id="sOk">0</b></span><span>Ката: <b id="sBad">0</b></span><span>Калды: <b id="sLeft">20</b></span></div>
+    <h3 id="qText"></h3>
+    <div id="opts" class="opts"></div>
+    <p id="fb" class="fb" aria-live="polite"></p>
+    <button id="nextBtn" class="btn" disabled>КИЙИНКИ СУРОО →</button>
+  </div>
+  <div id="result" class="glass pad center" hidden aria-live="polite">
+    <h3>ЭКЗАМЕН БҮТТҮ!</h3>
+    <div id="ring" class="ring"><span id="pct">0%</span></div>
+    <p class="big">Упай: <b id="rScore"></b></p>
+    <p>Туура: <b id="rOk"></b> · Ката: <b id="rBad"></b> · Жооп берилген жок: <b id="rNone"></b></p>
+    <p>Убакыт: <b id="rTime"></b></p>
+    <div id="badge" class="badge"></div>
+    <p id="lvlMsg"></p>
+    <p id="motive" class="neon"></p>
+    <div class="row">
+      <button class="btn" id="retake">КАЙРА ТАПШЫРУУ</button>
+      <a class="btn" href="#history">ТАРЫХТЫ КӨРҮҮ</a>
+      <a class="btn" href="#home" id="homeBtn">БАШКЫ БЕТКЕ КАЙТУУ</a>
+    </div>
+  </div>
+</section>
+<!-- HISTORY -->
+<section id="history">
+  <h2>ТАРЫХ</h2>
+  <div class="grid">
+    <div class="glass stat"><small>БАРДЫК ЭКЗАМЕН</small><b id="tExams">0</b></div>
+    <div class="glass stat"><small>ЭҢ ЖАКШЫ УПАЙ</small><b id="tBest">0 / 20</b></div>
+    <div class="glass stat"><small>ОРТОЧО УПАЙ</small><b id="tAvg">0%</b><div class="mini"><i id="avgBar"></i></div></div>
+    <div class="glass stat"><small>БАРДЫК ТУУРА ЖООП</small><b id="tOk">0</b></div>
+  </div>
+  <div id="histList" class="grid"></div>
+  <div class="center"><button id="clearBtn" class="btn danger">ТАРЫХТЫ ТАЗАЛОО</button></div>
+</section>
+<!-- ABOUT -->
+<section id="about">
+  <h2>IT adis ОКУУ БОРБОРУ</h2>
+  <p class="center">IT adis — заманбап технологияларды жана программалоону үйрөтүүгө багытталган окуу борбору.</p>
+  <div class="grid">
+    <div class="card glass"><div class="ico">🌐</div><h3>HTML</h3></div>
+    <div class="card glass"><div class="ico">🎨</div><h3>CSS</h3></div>
+    <div class="card glass"><div class="ico">🐍</div><h3>Python</h3></div>
+    <div class="card glass"><div class="ico">🖥️</div><h3>Web Development</h3></div>
+    <div class="card glass"><div class="ico">🤖</div><h3>AI</h3></div>
+    <div class="card glass"><div class="ico">⌨️</div><h3>Programming</h3></div>
+  </div>
+  <div class="center ico" aria-label="Программист">👨‍💻</div>
+</section>
+</main>
+<footer>
+  <h3>IT adis ОКУУ БОРБОРУ</h3><p>Билим ал. Код жаз. Келечек кур.</p>
+  <nav><a href="#home">Башкы бет</a><a href="#exam">Экзамен</a><a href="#topics">Темалар</a><a href="#history">Тарых</a><a href="#about">Биз жөнүндө</a></nav>
+  <nav><a href="https://itadis-gamma.vercel.app/" target="_blank" rel="noopener">🚀 10 күндүк IT курс</a><a href="https://www.instagram.com/it.adis/" target="_blank" rel="noopener">📷 Instagram @it.adis</a><a href="https://www.instagram.com/it.adis.osh/" target="_blank" rel="noopener">📷 Instagram @it.adis.osh</a></nav>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
